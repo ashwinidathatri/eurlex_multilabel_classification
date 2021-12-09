@@ -197,7 +197,7 @@ def trainClassifier(destinationPath, classifierType):
     else:
         vectorizer = getVectoriser(classifierType)
         dataset_tfidf = vectorizer.fit_transform(totalDF['content'])
-        X_train, X_test, y_train, y_test = train_test_split(dataset_tfidf, totalDF, test_size=0.33,random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(dataset_tfidf, totalDF.iloc[:, 2:], test_size=0.33,random_state=42)
 
         classifier = getClassifier(classifierType)
 
